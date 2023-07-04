@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 
 object NetworkManager {
 
-    private const val BASE_URL = "https://api.openweathermap.org/data/3.0"
+    private const val BASE_URL = "https://api.openweathermap.org/data/3.0/"
 
     private var weatherService: WeatherService? = null
 
