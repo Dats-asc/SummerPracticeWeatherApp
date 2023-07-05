@@ -2,8 +2,15 @@ package com.example.summerpracticeweatherapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.MutableLiveData
 import com.example.summerpracticeweatherapp.databinding.ActivityMainBinding
 import com.example.summerpracticeweatherapp.network.NetworkManager
+import com.example.summerpracticeweatherapp.network.models.weather.WeatherResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         NetworkManager.getWeatherService()
     }
 
+    val weatherState: MutableLiveData<WeatherResponse?> = MutableLiveData()
+
     private val coroutineScope = CoroutineScope(SupervisorJob())
 
     private lateinit var binding: ActivityMainBinding
@@ -27,11 +36,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        coroutineScope.launch {
-            val weather = weatherService.getWeather()
-            delay(2000)
+        coroutineScope.launch(Dispatchers.IO) {
+            val currentWeather = weatherService.getWeatherByCity("Kazan")
             withContext(Dispatchers.Main) {
-                binding.tvTest.text = "teasdasdasd"
+                weatherState.value = currentWeather
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        weatherState.observe(this) { weather ->
+            weather?.let {
+                binding.tvTest.text = "Now is: ${weather.main.temp}"
+            }
+        }
+        with(binding) {
+            etTest.setOnDebounceTextChanged(coroutineScope) {
+                tvTest.text = it
             }
         }
     }
@@ -39,5 +61,18 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         coroutineScope.cancel()
+    }
+}
+
+fun EditText.setOnDebounceTextChanged(
+    coroutineScope: CoroutineScope,
+    onTextChanged: (String) -> Unit
+) {
+    this.addTextChangedListener {
+        coroutineScope.launch(Dispatchers.Main) {
+            if (it.toString().isEmpty()) return@launch
+            delay(1000)
+            onTextChanged(it.toString())
+        }
     }
 }
