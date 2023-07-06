@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.summerpracticeweatherapp.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_todayForecastFragment"
+            app:destination="@id/todayForecastFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_twoWeeksForecastFragment"
+            app:destination="@id/twoWeeksForecastFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_graphForecastFragment"
+            app:destination="@id/graphForecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/graphForecastFragment"
+        android:name="com.example.summerpracticeweatherapp.GraphForecastFragment"
+        android:label="fragment_graph_forecast"
+        tools:layout="@layout/fragment_graph_forecast" >
+        <action
+            android:id="@+id/action_graphForecastFragment_to_todayForecastFragment"
+            app:destination="@id/todayForecastFragment" />
+        <action
+            android:id="@+id/action_graphForecastFragment_to_twoWeeksForecastFragment"
+            app:destination="@id/twoWeeksForecastFragment" />
+        <action
+            android:id="@+id/action_graphForecastFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/todayForecastFragment"
+        android:name="com.example.summerpracticeweatherapp.TodayForecastFragment"
+        android:label="fragment_today_forecast"
+        tools:layout="@layout/fragment_today_forecast" >
+        <action
+            android:id="@+id/action_todayForecastFragment_to_twoWeeksForecastFragment"
+            app:destination="@id/twoWeeksForecastFragment" />
+        <action
+            android:id="@+id/action_todayForecastFragment_to_graphForecastFragment"
+            app:destination="@id/graphForecastFragment" />
+        <action
+            android:id="@+id/action_todayForecastFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoWeeksForecastFragment"
+        android:name="com.example.summerpracticeweatherapp.TwoWeeksForecastFragment"
+        android:label="fragment_two_weeks_forecast"
+        tools:layout="@layout/fragment_two_weeks_forecast" >
+        <action
+            android:id="@+id/action_twoWeeksForecastFragment_to_graphForecastFragment"
+            app:destination="@id/graphForecastFragment" />
+        <action
+            android:id="@+id/action_twoWeeksForecastFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_twoWeeksForecastFragment_to_todayForecastFragment"
+            app:destination="@id/todayForecastFragment" />
+    </fragment>
+</navigation>
