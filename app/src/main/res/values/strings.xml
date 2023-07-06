@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SummerPracticeWeatherApp</string>
+    <string name="search">Search</string>
+    <string name="search_ru">Поиск</string>
+    <string name="today">Сегодня</string>
+    <string name="days_10">10 дней</string>
+    <string name="graph">График</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="two_weeks_fragment">Two Weeks Fragment (Арслан)</string>
+    <string name="graph_fragment">Graph Fragment (Азат)</string>
 </resources>

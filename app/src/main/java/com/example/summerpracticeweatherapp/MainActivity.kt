@@ -1,23 +1,23 @@
 package com.example.summerpracticeweatherapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.summerpracticeweatherapp.databinding.ActivityMainBinding
 import com.example.summerpracticeweatherapp.network.NetworkManager
 import com.example.summerpracticeweatherapp.network.models.weather.WeatherResponse
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,28 +33,38 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
+        setContentView(R.layout.activity_main)
+
+        val controller = (supportFragmentManager.findFragmentById(R.id.cw_main_container) as NavHostFragment)
+            .navController
+        findViewById<BottomNavigationView>(R.id.navBar).apply {
+            setupWithNavController(controller)
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+
+        /*
         coroutineScope.launch(Dispatchers.IO) {
             val currentWeather = weatherService.getWeatherByCity("Kazan")
             withContext(Dispatchers.Main) {
                 weatherState.value = currentWeather
             }
         }
+
+         */
     }
 
     override fun onStart() {
         super.onStart()
         weatherState.observe(this) { weather ->
             weather?.let {
-                binding.tvTest.text = "Now is: ${weather.main.temp}"
+
             }
         }
         with(binding) {
-            etTest.setOnDebounceTextChanged(coroutineScope) {
-                tvTest.text = it
-            }
         }
     }
 
