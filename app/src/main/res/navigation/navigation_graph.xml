@@ -14,7 +14,7 @@
             android:id="@+id/action_searchFragment_to_todayForecastFragment"
             app:destination="@id/todayForecastFragment" />
         <action
-            android:id="@+id/action_searchFragment_to_twoWeeksForecastFragment"
+            android:id="@+id/action_searchFragment_to_daysFragment"
             app:destination="@id/twoWeeksForecastFragment" />
         <action
             android:id="@+id/action_searchFragment_to_graphForecastFragment"
@@ -29,7 +29,7 @@
             android:id="@+id/action_graphForecastFragment_to_todayForecastFragment"
             app:destination="@id/todayForecastFragment" />
         <action
-            android:id="@+id/action_graphForecastFragment_to_twoWeeksForecastFragment"
+            android:id="@+id/action_graphForecastFragment_to_daysFragment"
             app:destination="@id/twoWeeksForecastFragment" />
         <action
             android:id="@+id/action_graphForecastFragment_to_searchFragment"
@@ -41,7 +41,7 @@
         android:label="fragment_today_forecast"
         tools:layout="@layout/fragment_today_forecast" >
         <action
-            android:id="@+id/action_todayForecastFragment_to_twoWeeksForecastFragment"
+            android:id="@+id/action_todayForecastFragment_to_daysFragment"
             app:destination="@id/twoWeeksForecastFragment" />
         <action
             android:id="@+id/action_todayForecastFragment_to_graphForecastFragment"
@@ -52,9 +52,9 @@
     </fragment>
     <fragment
         android:id="@+id/twoWeeksForecastFragment"
-        android:name="com.example.summerpracticeweatherapp.TwoWeeksForecastFragment"
+        android:name="com.example.summerpracticeweatherapp.DaysFragment"
         android:label="fragment_two_weeks_forecast"
-        tools:layout="@layout/fragment_two_weeks_forecast" >
+        tools:layout="@layout/fragment_days" >
         <action
             android:id="@+id/action_twoWeeksForecastFragment_to_graphForecastFragment"
             app:destination="@id/graphForecastFragment" />
