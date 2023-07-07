@@ -1,6 +1,10 @@
 package com.example.summerpracticeweatherapp
 
+import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -20,7 +24,6 @@ import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
-
     private val weatherService by lazy {
         NetworkManager.getWeatherService()
     }
@@ -35,15 +38,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-
-        val controller = (supportFragmentManager.findFragmentById(R.id.cw_main_container) as NavHostFragment)
-            .navController
+        val controller =
+            (supportFragmentManager.findFragmentById(R.id.cw_main_container) as NavHostFragment)
+                .navController
         findViewById<BottomNavigationView>(R.id.navBar).apply {
             setupWithNavController(controller)
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-
 
 
         /*
@@ -64,25 +66,10 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-        with(binding) {
-        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         coroutineScope.cancel()
-    }
-}
-
-fun EditText.setOnDebounceTextChanged(
-    coroutineScope: CoroutineScope,
-    onTextChanged: (String) -> Unit
-) {
-    this.addTextChangedListener {
-        coroutineScope.launch(Dispatchers.Main) {
-            if (it.toString().isEmpty()) return@launch
-            delay(1000)
-            onTextChanged(it.toString())
-        }
     }
 }

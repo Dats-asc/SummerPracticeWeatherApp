@@ -14,11 +14,11 @@
         android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Moscow"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@id/iv_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Moscow" />
 
     <TextView
         android:id="@+id/tv_temp"
