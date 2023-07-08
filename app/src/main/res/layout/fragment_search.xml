@@ -21,4 +21,14 @@
         android:text="Save city"
         app:layout_constraintTop_toBottomOf="@id/et_city" />
 
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save_city"
+        android:layout_marginTop="150dp"
+        android:textSize="24sp"
+        android:text="Forecast"
+        android:textAlignment="center"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

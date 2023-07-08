@@ -42,7 +42,7 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
         coroutineScope.launch(Dispatchers.IO) {
             val weather = weatherService.getWeatherByCity(savedCity!!)
             withContext(Dispatchers.Main) {
-                binding?.tvTemp?.text = weather.main.temp.toString() + "°C"
+                //binding?.tvTemp?.text = weather.main.temp.toString() + "°C"
             }
         }
     }

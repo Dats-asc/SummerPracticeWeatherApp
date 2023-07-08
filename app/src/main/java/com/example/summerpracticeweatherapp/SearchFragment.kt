@@ -4,11 +4,15 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import com.example.summerpracticeweatherapp.databinding.FragmentSearchBinding
+import com.example.summerpracticeweatherapp.network.Forecast
+import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     var binding: FragmentSearchBinding? = null
+
+    private var savedCity: String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -20,6 +24,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 SharedPrefsUtils.saveCity(requireContext(), cityName)
             }
         }
+
     }
 
     override fun onDestroyView() {
