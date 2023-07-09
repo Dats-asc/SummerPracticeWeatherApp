@@ -13,3 +13,17 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.iml
+/gradlew.bat
+.gradle
+/local.properties
+.idea
+.signing
+.DS_Store
+/build
+/app/build/
+/captures
+.externalNativeBuild
+/adbkill.sh
+*/generated/
+*/.kotlintest/

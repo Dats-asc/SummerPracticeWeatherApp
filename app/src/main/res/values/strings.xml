@@ -26,4 +26,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="two_weeks_fragment">Two Weeks Fragment (Арслан)</string>
     <string name="graph_fragment">Graph Fragment (Азат)</string>
+    <string name="town">Moscow\n</string>
+    <string name="currentCity">Moscow</string>
+    <string name="currentTemp">x°C </string>
 </resources>
