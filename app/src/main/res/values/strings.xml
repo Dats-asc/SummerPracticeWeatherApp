@@ -29,4 +29,6 @@
     <string name="town">Moscow\n</string>
     <string name="currentCity">Moscow</string>
     <string name="currentTemp">x°C </string>
+    <string name="show_forecast">Show Forecast</string>
+    <string name="enter_the_city_name">Enter the city name</string>
 </resources>

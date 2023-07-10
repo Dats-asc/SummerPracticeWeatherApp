@@ -100,6 +100,7 @@ enum class Pod(val value: String) {
 data class Weather (
     val id: Long,
     val main: MainEnum,
+    @SerialName("description")
     val description: String,
     val icon: String
 )
