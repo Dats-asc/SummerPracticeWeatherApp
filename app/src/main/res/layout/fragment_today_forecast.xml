@@ -23,16 +23,16 @@
             android:background="@drawable/rectangle"
             android:scaleType="fitXY"
             android:src="@drawable/detail_screen_background"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="-43dp" />
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-36dp" />
 
         <TextView
-            android:id="@+id/tvCity1"
+            android:id="@+id/tvCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Moscow, Russian"
+            android:text="Moscow"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
             android:layout_marginTop="108dp"
             android:text="3°"
             android:textColor="@color/white"
-            android:textSize="60sp"
+            android:textSize="50sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +69,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:text="January 18, 16:14"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -82,67 +82,42 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="Day 23,33°
-            Night -21/23°"
+            Night -21,23°C"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <TextView
+            android:id="@+id/tvCloudInf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cloud"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginEnd="5sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivMainIconNow" />
+
+        <TextView
+            android:id="@+id/tvFeelsLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feels_like"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/tvMainTempValueNow"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainTempValueNow" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_btns_days"
-        android:layout_width="match_parent"
-        android:layout_height="65sp"
-        android:layout_below="@+id/layout_for_image"
-        android:backgroundTint="@color/color_main_back">
-
-        <Button
-            android:id="@+id/btn_today"
-            android:layout_width="80sp"
-            android:layout_height="50sp"
-            android:layout_marginStart="10sp"
-            android:layout_marginTop="10sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/color_day_btn"
-            android:text="@string/today"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/btn_tomorrow"
-            android:layout_width="80sp"
-            android:layout_height="50sp"
-            android:layout_marginHorizontal="5sp"
-            android:layout_marginTop="10sp"
-            android:layout_weight="1"
-            android:backgroundTint="#FFFFFF"
-            android:text="@string/tomorrow"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/btn_five_day"
-            android:layout_width="80sp"
-            android:layout_height="50sp"
-            android:layout_marginTop="10sp"
-            android:layout_marginEnd="10sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/color_day_btn"
-            android:text="@string/days_10"
-            android:textColor="@color/black"
-            android:textSize="13sp" />
-
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_wind_rain"
         android:layout_width="match_parent"
         android:layout_height="62sp"
-        android:layout_below="@+id/layout_btns_days"
+        android:layout_below="@+id/layout_for_image"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="5sp">
+        android:layout_marginTop="30sp">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -198,7 +173,7 @@
             app:layout_constraintStart_toStartOf="@+id/imageView4" />
 
         <TextView
-            android:id="@+id/tv_wind_speed_value"
+            android:id="@+id/tvWinSpeedValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="65sp"
@@ -284,7 +259,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_pressure_value"
+            android:id="@+id/tvPressureValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="65sp"
@@ -334,12 +309,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="30sp"
 >
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="400sp"
+            android:layout_width="430sp"
             android:layout_height="150sp"
             android:scaleType="fitXY"
             android:src="@drawable/img_3"
@@ -353,7 +328,7 @@
             android:id="@+id/iv_hourly_forecast"
             android:layout_width="30sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="30sp"
             android:src="@drawable/img_11"
             app:layout_constraintStart_toStartOf="@id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
@@ -362,14 +337,14 @@
             android:id="@+id/tv_hourly_forecast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65sp"
+            android:layout_marginStart="75sp"
             android:layout_marginTop="18sp"
             android:text="@string/hourly_forecast"
             app:layout_constraintStart_toStartOf="@id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
             android:layout_marginTop="40sp"
@@ -387,10 +362,9 @@
                 <ImageView
 
                     android:id="@+id/ivWeatherNow"
-                    android:layout_width="25sp"
+                    android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_weather_now" />
@@ -406,7 +380,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_value_weather_now"
+                    android:id="@+id/tvValueWeatherNow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
@@ -423,24 +397,23 @@
 
                 <ImageView
 
-                    android:id="@+id/im_weather_after_1"
-                    android:layout_width="25sp"
+                    android:id="@+id/imWeatherAfterOneHour"
+                    android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_1" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_time_after_1" />
 
                 <TextView
-                    android:id="@+id/tv_weather_after_1"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_time_after_1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hourly_forecast_2"
-                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_1"
@@ -450,7 +423,8 @@
                     android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_1" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_time_after_1"
+                    android:textSize="13sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -460,24 +434,23 @@
 
                 <ImageView
 
-                    android:id="@+id/iv_weather_after_2"
-                    android:layout_width="25sp"
+                    android:id="@+id/imWeatherAfterTwoHour"
+                    android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_2" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_2" />
 
                 <TextView
-                    android:id="@+id/tv_weather_after_2"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_Time_after_2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hourly_forecast_3"
-                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_2"
@@ -487,7 +460,8 @@
                     android:text="55°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_2" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_2"
+                    android:textSize="13sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -496,24 +470,23 @@
                 android:layout_marginHorizontal="14sp">
 
                 <ImageView
-                    android:id="@+id/iv_weather_after_3"
-                    android:layout_width="25sp"
+                    android:id="@+id/imWeatherAfterThreeHour"
+                    android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_3" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_3" />
 
                 <TextView
-                    android:id="@+id/tv_weather_after_3"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_Time_after_3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hourly_forecast_4"
-                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_3"
@@ -523,7 +496,8 @@
                     android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_3" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_3"
+                    android:textSize="13sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -533,24 +507,23 @@
 
                 <ImageView
 
-                    android:id="@+id/iv_weather_after_4"
-                    android:layout_width="25sp"
+                    android:id="@+id/imWeatherAfterFourHour"
+                    android:layout_width="35sp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_4" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_4" />
 
                 <TextView
-                    android:id="@+id/tv_weather_after_4"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_Time_after_4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hourly_forecast_5"
-                    android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="10sp"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_4"
@@ -560,44 +533,8 @@
                     android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_4" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="14sp">
-
-                <ImageView
-
-                    android:id="@+id/iv_weather_after_5"
-                    android:layout_width="25sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15sp"
-                    android:src="@drawable/img_10"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_5" />
-
-                <TextView
-                    android:id="@+id/tv_weather_after_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hourly_forecast_6"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_value_weather_after_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="65sp"
-                    android:text="10°"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_weather_after_5" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_Time_after_4"
+                    android:textSize="13sp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
