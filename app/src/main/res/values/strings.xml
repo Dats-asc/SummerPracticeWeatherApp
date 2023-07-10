@@ -5,6 +5,23 @@
     <string name="today">Сегодня</string>
     <string name="days_10">10 дней</string>
     <string name="graph">График</string>
+    <string name="tomorrow">Завтра</string>
+    <string name="feels_like">Чуствуется как</string>
+    <string name="wind_speed">Wind_speed</string>
+    <string name="pressure_text">Pressure</string>
+    <string name="pressure_value">720 hpa</string>
+    <string name="uv_index_text">UV Index</string>
+    <string name="uv_index_value">2,3</string>
+    <string name="hourly_forecast">Hourly forecast</string>
+    <string name="rain_chance">Rain chance</string>
+    <string name="rain_chance_value">24%</string>
+    <string name="wind_speed_value">12km/h</string>
+    <string name="hourly_forecast_1">Now</string>
+    <string name="hourly_forecast_2">10AM</string>
+    <string name="hourly_forecast_3">13AM</string>
+    <string name="hourly_forecast_4">12PM</string>
+    <string name="hourly_forecast_5">13PM</string>
+    <string name="hourly_forecast_6">20PM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="two_weeks_fragment">Two Weeks Fragment (Арслан)</string>
