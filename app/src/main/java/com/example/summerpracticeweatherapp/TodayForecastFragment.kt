@@ -14,6 +14,9 @@ import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.loadImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.util.Date
+import java.util.Locale
 
 
 class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
@@ -32,7 +35,7 @@ class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
             ivMainIconNow.loadImage("http://openweathermap.org/img/w/${weather.list[0].weather[0].icon}.png")
             tvInfDayAndNight.text = "Day ${weather.list[0].main.tempMax}°C " +
                     "Night ${weather.list[0].main.tempMin}°C"
-            tvDataAndTime.text = weather.list[0].dtTxt
+            tvDataAndTime.text = Date().toString()
             tvPressureValue.text = weather.list[0].main.pressure.toString() + "hpa"
             tvWinSpeedValue.text = weather.list[0].wind.speed.toString() + "km/h"
             tvCloudInf.text = weather.list[0].weather[0].description
@@ -52,7 +55,7 @@ class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
             tvTimeAfter3.text = weather.list[3].dtTxt.substring(10).reversed().substring(3).reversed()
             tvTimeAfter4.text = weather.list[4].dtTxt.substring(10).reversed().substring(3).reversed()
             tvRainChanceValue.text = weather.list[0].pop.toString().substring(2) + "%"
-            tvUvIndexValue.text = weather.list[0].sys.pod.value.toString()
+            tvUvIndexValue.text = weather.list[0].wind.deg.toString() + "°"
 
             //tvWeatherAfterOneHour.text = weather.list[0].dtTxt
         }

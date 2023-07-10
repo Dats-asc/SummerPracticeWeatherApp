@@ -31,20 +31,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Moscow"
+            android:layout_marginTop="20sp"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <ImageView
             android:id="@+id/ivMainIconNow"
-            android:layout_width="129dp"
+            android:layout_width="130dp"
             android:layout_height="100dp"
             android:layout_marginStart="264dp"
             android:layout_marginTop="80dp"
-            android:src="@drawable/img_6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,11 +54,11 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="108dp"
-            android:text="3°"
             android:textColor="@color/white"
             android:textSize="50sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tvDataAndTime"
@@ -73,7 +72,8 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tvInfDayAndNight"
@@ -81,32 +81,33 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Day 23,33°
-            Night -21,23°C"
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tvCloudInf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cloud"
+            android:fontFamily="@font/helvetica_light"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:layout_marginEnd="5sp"
+            android:textSize="16sp"
+            android:layout_marginBottom="60sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvInfDayAndNight"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivMainIconNow" />
+            app:layout_constraintStart_toStartOf="@+id/ivMainIconNow"
+            android:layout_marginEnd="20dp"/>
 
         <TextView
             android:id="@+id/tvFeelsLike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/feels_like"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/tvMainTempValueNow"
-            app:layout_constraintTop_toBottomOf="@+id/tvMainTempValueNow" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMainTempValueNow"
+            android:fontFamily="@font/helvetica_light"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -159,7 +160,8 @@
             android:text="@string/rain_chance"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tv_rain_chance_value"
@@ -167,10 +169,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="65dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/rain_chance_value"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView4" />
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tvWinSpeedValue"
@@ -178,10 +180,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="65sp"
             android:layout_marginBottom="10sp"
-            android:text="@string/wind_speed_value"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-            app:layout_constraintStart_toStartOf="@+id/imageView6" />
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tv_wind_speed"
@@ -192,7 +194,8 @@
             android:text="@string/wind_speed"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <ImageView
             android:id="@+id/iv_wind_speed"
@@ -256,7 +259,8 @@
             android:text="@string/pressure_text"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/image4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tvPressureValue"
@@ -264,17 +268,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="65sp"
             android:layout_marginBottom="10sp"
-            android:text="@string/pressure_value"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/image4"
-            app:layout_constraintStart_toStartOf="@+id/image4" />
+            app:layout_constraintStart_toStartOf="@+id/image4"
+            android:fontFamily="@font/helvetica_light"/>
 
         <ImageView
             android:id="@+id/iv_uv_index"
             android:layout_width="35dp"
             android:layout_height="50dp"
             android:layout_marginStart="20sp"
-            android:src="@drawable/img_8"
+            android:src="@drawable/img_12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/image6"
             app:layout_constraintTop_toTopOf="parent" />
@@ -285,10 +289,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="65sp"
             android:layout_marginTop="10sp"
-            android:text="@string/uv_index_text"
+            android:text="Wind direction"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/image6"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/helvetica_light"/>
 
         <TextView
             android:id="@+id/tv_uv_index_value"
@@ -296,10 +301,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="65dp"
             android:layout_marginBottom="10dp"
-            android:text="2,3"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/image6" />
+            app:layout_constraintStart_toStartOf="@+id/image6"
+            android:fontFamily="@font/helvetica_light"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -341,7 +346,8 @@
             android:layout_marginTop="18sp"
             android:text="@string/hourly_forecast"
             app:layout_constraintStart_toStartOf="@id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            app:layout_constraintTop_toTopOf="@+id/imageView5"
+            android:fontFamily="@font/helvetica_light"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -377,14 +383,15 @@
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/helvetica_light"/>
 
                 <TextView
                     android:id="@+id/tvValueWeatherNow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
-                    android:text="10°"
+                    android:fontFamily="@font/helvetica_light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_weather_now" />
@@ -413,18 +420,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp"
+                    android:fontFamily="@font/helvetica_light"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
-                    android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_time_after_1"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    android:fontFamily="@font/helvetica_light"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -450,18 +458,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp"
+                    android:fontFamily="@font/helvetica_light"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
-                    android:text="55°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_Time_after_2"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    android:fontFamily="@font/helvetica_light"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -486,18 +495,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp"
+                    android:fontFamily="@font/helvetica_light"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
-                    android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_Time_after_3"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    android:fontFamily="@font/helvetica_light"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -523,18 +533,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp"
+                    android:fontFamily="@font/helvetica_light"/>
 
                 <TextView
                     android:id="@+id/tv_value_weather_after_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="65sp"
-                    android:text="10°"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_Time_after_4"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    android:fontFamily="@font/helvetica_light"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
