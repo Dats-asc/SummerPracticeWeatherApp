@@ -12,9 +12,12 @@ import retrofit2.Retrofit
 object NetworkManager {
 
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
+    private const val CITY_SEARCH_BASE_URL = "https://api.api-ninjas.com/v1/"
     private const val API_KEY = "5801e204d69957dd4fbfa53b3510fad9"
+    private const val CITY_SEARCH_API_KEY = "hGjMsmSQabwE3Kt4jc8nYw==gvyUtwyEbyKSOY1B"
 
     private var weatherService: WeatherService? = null
+    private var citySearchService: CitySearchService? = null
 
     private var apiInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url.newBuilder().apply {
@@ -43,10 +46,29 @@ object NetworkManager {
             .build()
     }
 
+    private fun getCityRetrofit(): Retrofit {
+        val contentType = "application/json".toMediaType()
+        val kotlinxConverterFactory = Json {
+            ignoreUnknownKeys = true
+        }.asConverterFactory(contentType)
+        return Retrofit.Builder()
+            .baseUrl(CITY_SEARCH_BASE_URL)
+            .client(OkHttpClient())
+            .addConverterFactory(kotlinxConverterFactory)
+            .build()
+    }
+
     fun getWeatherService(): WeatherService {
         if (weatherService == null) {
             weatherService = getRetrofit().create(WeatherService::class.java)
         }
         return weatherService!!
+    }
+
+    fun getSearchService(): CitySearchService {
+        if (citySearchService == null) {
+            citySearchService = getCityRetrofit().create(CitySearchService::class.java)
+        }
+        return citySearchService!!
     }
 }
