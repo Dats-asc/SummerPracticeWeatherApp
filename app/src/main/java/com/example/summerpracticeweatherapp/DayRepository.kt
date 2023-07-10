@@ -21,17 +21,32 @@ object DayRepository {
                 maxTemp = calcMaxTemp(),
                 icon = calcIcon()
             )
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
             startDayIndex += 8
             day
         }
+        startDayIndex = findStartDay()
     }
+    val minTempArray = mutableListOf<Double>()
+    val maxTempArray = mutableListOf<Double>()
+    fun calcGraph() {
+        minTempArray.clear()
+        maxTempArray.clear()
+        for (i in 0..3){
+            minTempArray.add(calcMinTemp())
+            maxTempArray.add(calcMaxTemp())
+            startDayIndex += 8
+        }
+        startDayIndex = findStartDay()
+    }
+
 
     fun loadData(weather: Main) {
         forecast = weather
         startDayIndex = findStartDay()
         calendar = Calendar.getInstance()
         calcAll()
+        calcGraph()
     }
 
     fun findStartDay(): Int {
