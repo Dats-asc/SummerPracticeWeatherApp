@@ -46,6 +46,7 @@ object DayRepository {
         startDayIndex = findStartDay()
         calendar = Calendar.getInstance()
         calcAll()
+        calcGraph()
     }
 
     fun findStartDay(): Int {

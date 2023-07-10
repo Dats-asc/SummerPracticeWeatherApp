@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.example.summerpracticeweatherapp.DayRepository.calcMaxTemp
 import com.example.summerpracticeweatherapp.DayRepository.calcMinTemp
+import com.example.summerpracticeweatherapp.DayRepository.loadData
 import com.example.summerpracticeweatherapp.DayRepository.startDayIndex
 import com.example.summerpracticeweatherapp.databinding.FragmentGraphForecastBinding
 import com.example.summerpracticeweatherapp.databinding.FragmentSearchBinding
@@ -34,11 +35,10 @@ class GraphForecastFragment : Fragment(R.layout.fragment_graph_forecast) {
     }
 
     fun updateUI(weather: Main){
+        loadData(weather)
         binding?.tvCity?.text = weather.city.name
-
         val graphView = binding?.graph
 
-        DayRepository.calcGraph()
 
         val dataPointsMax = DayRepository.maxTempArray.mapIndexed { index, temperature ->
             DataPoint(index.toDouble(), temperature)
