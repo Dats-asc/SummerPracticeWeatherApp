@@ -4,11 +4,14 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import com.example.summerpracticeweatherapp.DayRepository.list
+import com.example.summerpracticeweatherapp.DayRepository.loadData
 import com.example.summerpracticeweatherapp.databinding.FragmentDaysBinding
 import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.NetworkManager
 import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
+import com.example.summerpracticeweatherapp.utils.loadImage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,7 +33,6 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDaysBinding.bind(view)
-        initAdapter()
     }
 
     override fun onDestroyView() {
@@ -38,7 +40,11 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
         binding = null
     }
     fun updateUI(weather: Main) {
-
+        loadData(weather)
+        binding?.tvCity?.text = weather.city.name
+        binding?.tvTemp?.text = weather.list?.get(0)?.main?.temp.toString() + "°C"
+        initAdapter()
+        binding?.ivIcon?.loadImage("http://openweathermap.org/img/w/${weather.list[0].weather[0].icon}.png")
     }
 
     override fun onStart() {
@@ -53,8 +59,7 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
     }
 
     private fun initAdapter() {
-        adapter = DayAdapter(DayRepository.list)
+        adapter = list?.let { DayAdapter(it) }
         binding?.rvDay?.adapter = adapter
-        binding?.tvCity?.text = savedCity
     }
 }

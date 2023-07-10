@@ -2,7 +2,9 @@ package com.example.summerpracticeweatherapp.utils
 
 import android.content.Context
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.widget.addTextChangedListener
+import com.bumptech.glide.Glide
 import com.example.summerpracticeweatherapp.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,4 +41,11 @@ object SharedPrefsUtils {
             return getString(CITY_NAME, CITY_DEFAULT_VALUE) ?: CITY_DEFAULT_VALUE
         }
     }
+    
+}
+
+fun ImageView.loadImage(url: String) {
+    Glide.with(this)
+        .load(url)
+        .into(this)
 }
