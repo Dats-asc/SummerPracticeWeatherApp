@@ -10,6 +10,7 @@
      TODO: Опирайся по содержанию на 1 экранчик !!!
      TODO: https://www.figma.com/file/rVZEU4G8CsxgUxCOe6cnK7/Google-Weather-App-Redesign-(Community)?type=design&node-id=0-1&mode=design&t=4Xzz8SsP3yysXUi9-0-->
     <TextView
+        android:id="@+id/tv_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="26sp"

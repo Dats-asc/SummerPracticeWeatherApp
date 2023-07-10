@@ -3,8 +3,11 @@ package com.example.summerpracticeweatherapp
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import com.example.summerpracticeweatherapp.databinding.FragmentDaysBinding
+import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.NetworkManager
+import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -34,15 +37,17 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
         super.onDestroyView()
         binding = null
     }
+    fun updateUI(weather: Main) {
+
+    }
 
     override fun onStart() {
         super.onStart()
-        savedCity = SharedPrefsUtils.getSavedCity(requireContext()) ?: ""
-        binding?.tvCity?.text = savedCity
-        coroutineScope.launch(Dispatchers.IO) {
-            val weather = weatherService.getWeatherByCity(savedCity!!)
-            withContext(Dispatchers.Main) {
-                //binding?.tvTemp?.text = weather.main.temp.toString() + "°C"
+        this.lifecycleScope.launch(Dispatchers.Main) {
+            Forecast.getForecast().collect { currentWeather ->
+                currentWeather?.let {
+                   updateUI(currentWeather)
+                }
             }
         }
     }
