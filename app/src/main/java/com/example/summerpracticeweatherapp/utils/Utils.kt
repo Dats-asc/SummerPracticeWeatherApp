@@ -41,6 +41,7 @@ object SharedPrefsUtils {
             return getString(CITY_NAME, CITY_DEFAULT_VALUE) ?: CITY_DEFAULT_VALUE
         }
     }
+    
 }
 
 fun ImageView.loadImage(url: String) {
