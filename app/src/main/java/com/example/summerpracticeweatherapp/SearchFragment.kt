@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.summerpracticeweatherapp.databinding.FragmentSearchBinding
+import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.NetworkManager
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import com.example.summerpracticeweatherapp.utils.setOnDebounceTextChanged
@@ -25,9 +26,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding = FragmentSearchBinding.bind(view)
 
         binding?.etCity?.setText(SharedPrefsUtils.getSavedCity(requireContext()))
+
         if (searchAdapter == null) {
             searchAdapter = SearchAdapter { city ->
-
+                binding?.etCity?.setText(city.name)
             }
             binding?.rvCities?.adapter = searchAdapter
         }
@@ -35,16 +37,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             it.etCity.setOnDebounceTextChanged(lifecycleScope) { query ->
                 if (query.isNotEmpty()) {
                     lifecycleScope.launch(Dispatchers.IO) {
+
                         val cities =
                             searchService.getCitiesByRequest(binding?.etCity?.text.toString())
+
                         withContext(Dispatchers.Main) {
                             if (cities.isEmpty()) {
-                                binding?.notFoundStub?.visibility = View.VISIBLE
+                                binding?.tvNotFoundStub?.visibility = View.VISIBLE
                                 binding?.rvCities?.visibility = View.GONE
                             } else {
-                                binding?.notFoundStub?.visibility = View.GONE
+                                binding?.tvNotFoundStub?.visibility = View.GONE
                                 binding?.rvCities?.visibility = View.VISIBLE
                             }
+
                             searchAdapter?.let {
                                 it.submitList(cities)
                             }
@@ -53,9 +58,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 }
             }
             it.btnSaveCity.setOnClickListener {
-//                Forecast.updateForecast(requireContext(), binding?.etCity?.text.toString())
+                Forecast.updateForecast(requireContext(), binding?.etCity?.text.toString())
+
                 lifecycleScope.launch(Dispatchers.IO) {
                     val cities = searchService.getCitiesByRequest(binding?.etCity?.text.toString())
+
                     withContext(Dispatchers.Main) {
                         searchAdapter?.let {
                             it.submitList(cities)
@@ -65,7 +72,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

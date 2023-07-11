@@ -1,7 +1,6 @@
 package com.example.summerpracticeweatherapp
 import androidx.recyclerview.widget.RecyclerView
 import com.example.summerpracticeweatherapp.databinding.ItemDayBinding
-import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.utils.loadImage
 
 

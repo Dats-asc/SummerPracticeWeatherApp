@@ -5,7 +5,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
-import com.example.summerpracticeweatherapp.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,7 +17,7 @@ fun EditText.setOnDebounceTextChanged(
     this.addTextChangedListener {
         coroutineScope.launch(Dispatchers.Main) {
             if (it.toString().isEmpty()) return@launch
-            delay(1000)
+            delay(100)
             onTextChanged(it.toString())
         }
     }

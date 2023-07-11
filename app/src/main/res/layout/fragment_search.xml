@@ -11,10 +11,12 @@
         android:id="@+id/et_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/helvetica_light"
         android:hint="@string/enter_the_city_name"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save_city" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_save_city"
@@ -22,11 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+
         android:text="@string/show_forecast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cities"
@@ -34,17 +38,18 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_save_city"
+        app:layout_constraintTop_toBottomOf="@id/et_city"
+        app:layout_constraintBottom_toTopOf="@id/btn_save_city"
+        android:layout_marginBottom="16dp"
         tools:listitem="@layout/item_city_search_result" />
 
     <TextView
-        android:id="@+id/not_found_stub"
+        android:id="@+id/tv_not_found_stub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Not found"
+        android:text="@string/not_found"
         android:textSize="32sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/rv_cities"

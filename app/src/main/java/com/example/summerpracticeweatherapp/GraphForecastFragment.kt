@@ -2,20 +2,13 @@ package com.example.summerpracticeweatherapp
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.summerpracticeweatherapp.DayRepository.calcMaxTemp
-import com.example.summerpracticeweatherapp.DayRepository.calcMinTemp
 import com.example.summerpracticeweatherapp.DayRepository.loadData
-import com.example.summerpracticeweatherapp.DayRepository.startDayIndex
 import com.example.summerpracticeweatherapp.databinding.FragmentGraphForecastBinding
-import com.example.summerpracticeweatherapp.databinding.FragmentSearchBinding
 import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.models.weather.Main
-import com.example.summerpracticeweatherapp.network.models.weather.Weather
 import com.google.android.material.snackbar.Snackbar
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.DataPointInterface
@@ -35,7 +28,7 @@ class GraphForecastFragment : Fragment(R.layout.fragment_graph_forecast) {
         binding = FragmentGraphForecastBinding.bind(view)
     }
 
-    fun updateUI(weather: Main){
+    private fun updateUI(weather: Main){
         loadData(weather)
         binding?.tvCity?.text = weather.city.name
         val graphView = binding?.graph

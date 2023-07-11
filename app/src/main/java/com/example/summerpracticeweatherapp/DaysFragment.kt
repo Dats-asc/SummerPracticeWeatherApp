@@ -1,8 +1,8 @@
 package com.example.summerpracticeweatherapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.summerpracticeweatherapp.DayRepository.list
 import com.example.summerpracticeweatherapp.DayRepository.loadData
@@ -10,13 +10,11 @@ import com.example.summerpracticeweatherapp.databinding.FragmentDaysBinding
 import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.NetworkManager
 import com.example.summerpracticeweatherapp.network.models.weather.Main
-import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import com.example.summerpracticeweatherapp.utils.loadImage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class DaysFragment : Fragment(R.layout.fragment_days) {
     private var binding: FragmentDaysBinding? = null
@@ -39,7 +37,7 @@ class DaysFragment : Fragment(R.layout.fragment_days) {
         super.onDestroyView()
         binding = null
     }
-    fun updateUI(weather: Main) {
+    private fun updateUI(weather: Main) {
         loadData(weather)
         binding?.tvCity?.text = weather.city.name
         binding?.tvTemp?.text = weather.list?.get(0)?.main?.temp.toString() + "°C"

@@ -1,7 +1,6 @@
 package com.example.summerpracticeweatherapp.network
 
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
 import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import kotlinx.coroutines.CoroutineScope
@@ -39,8 +38,10 @@ object Forecast {
     fun updateForecast(ctx: Context, city: String) {
 
         coroutineScope.launch(Dispatchers.IO) {
+
             SharedPrefsUtils.saveCity(ctx, city)
             val currentWeather = weatherService.getWeatherByCity(city)
+
             withContext(Dispatchers.Main) {
                 forecast.emit(currentWeather)
             }

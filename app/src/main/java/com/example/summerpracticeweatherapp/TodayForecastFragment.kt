@@ -1,22 +1,16 @@
 package com.example.summerpracticeweatherapp
 
 import android.os.Bundle
-import android.provider.ContactsContract.Data
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.summerpracticeweatherapp.databinding.FragmentSearchBinding
 import com.example.summerpracticeweatherapp.databinding.FragmentTodayForecastBinding
 import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.models.weather.Main
 import com.example.summerpracticeweatherapp.utils.loadImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime
 import java.util.Date
-import java.util.Locale
 
 
 class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
@@ -28,7 +22,7 @@ class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
         binding = FragmentTodayForecastBinding.bind(view)
     }
 
-    fun updateUI(weather: Main){
+    private fun updateUI(weather: Main){
         binding?.run {
             tvCity.text = weather.city.name + ", ${weather.city.country}"
             tvMainTempValueNow.text= weather.list[0].main.temp.toString() + "°C"
@@ -57,7 +51,6 @@ class TodayForecastFragment : Fragment(R.layout.fragment_today_forecast) {
             tvRainChanceValue.text = weather.list[0].pop.toString().substring(2) + "%"
             tvUvIndexValue.text = weather.list[0].wind.deg.toString() + "°"
 
-            //tvWeatherAfterOneHour.text = weather.list[0].dtTxt
         }
     }
 

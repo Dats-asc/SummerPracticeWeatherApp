@@ -3,10 +3,8 @@ package com.example.summerpracticeweatherapp.network
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import retrofit2.Retrofit
 
 object NetworkManager {
@@ -22,7 +20,7 @@ object NetworkManager {
     private var apiInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url.newBuilder().apply {
             addQueryParameter("appid", API_KEY)
-            addQueryParameter("lang", "ru")
+            addQueryParameter("lang", "en")
             addQueryParameter("units", "metric")
         }.build()
         chain.proceed(chain.request().newBuilder().url(newUrl).build())
@@ -36,9 +34,10 @@ object NetworkManager {
 
     private fun getRetrofit(): Retrofit {
         val contentType = "application/json".toMediaType()
-        val kotlinxConverterFactory = Json {
-            ignoreUnknownKeys = true
-        }.asConverterFactory(contentType)
+
+        val kotlinxConverterFactory = Json { ignoreUnknownKeys = true }
+            .asConverterFactory(contentType)
+
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(getOkHttpClient())
@@ -48,9 +47,10 @@ object NetworkManager {
 
     private fun getCityRetrofit(): Retrofit {
         val contentType = "application/json".toMediaType()
-        val kotlinxConverterFactory = Json {
-            ignoreUnknownKeys = true
-        }.asConverterFactory(contentType)
+
+        val kotlinxConverterFactory = Json { ignoreUnknownKeys = true }.
+        asConverterFactory(contentType)
+
         return Retrofit.Builder()
             .baseUrl(CITY_SEARCH_BASE_URL)
             .client(OkHttpClient())

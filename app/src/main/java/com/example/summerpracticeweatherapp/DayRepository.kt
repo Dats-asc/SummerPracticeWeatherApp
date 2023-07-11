@@ -1,8 +1,5 @@
 package com.example.summerpracticeweatherapp
 
-import android.media.Image
-import android.util.Log
-import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.models.weather.Main
 import java.util.Calendar
 
@@ -12,7 +9,7 @@ object DayRepository {
     private var calendar = Calendar.getInstance()
     var startDayIndex = 0
     var list: List<Day>? = listOf()
-    fun calcAll() {
+    private fun calcAll() {
         list = (1..4).map { _ ->
             val day = Day(
                 date = calendar.time.toString().split(" ").take(3).joinToString(" "),
@@ -29,7 +26,7 @@ object DayRepository {
     }
     val minTempArray = mutableListOf<Double>()
     val maxTempArray = mutableListOf<Double>()
-    fun calcGraph() {
+    private fun calcGraph() {
         minTempArray.clear()
         maxTempArray.clear()
         for (i in 0..3){
@@ -49,7 +46,7 @@ object DayRepository {
         calcGraph()
     }
 
-    fun findStartDay(): Int {
+    private fun findStartDay(): Int {
         var k = 0
         while (forecast?.list?.get(k)!!.dt % 86400L != 0L) {
             k += 1
@@ -57,7 +54,7 @@ object DayRepository {
         return k
     }
 
-    fun calcDesc(): String {
+    private fun calcDesc(): String {
         val dictionary = mutableMapOf<String, Int>()
         val words = mutableListOf<String>()
         for (i in startDayIndex..startDayIndex + 7) {
@@ -89,7 +86,7 @@ object DayRepository {
         }
         return array.minOrNull()!!
     }
-    fun calcIcon(): String{
+    private fun calcIcon(): String{
         val dictionary = mutableMapOf<String, Int>()
         val words = mutableListOf<String>()
         for (i in startDayIndex..startDayIndex + 7) {
