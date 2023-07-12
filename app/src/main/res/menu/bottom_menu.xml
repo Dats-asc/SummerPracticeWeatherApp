@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/searchFragment"
-        android:title="@string/search_ru"
+        android:title="@string/search"
         android:icon="@drawable/search_48px"/>
     <item
         android:id="@+id/todayForecastFragment"
-        android:title="@string/today"
+        android:title="@string/today_bot"
         android:icon="@drawable/today_48px"/>
     <item
         android:id="@+id/twoWeeksForecastFragment"
-        android:title="@string/days_10"
+        android:title="@string/_5_days"
         android:icon="@drawable/calendar_month_48px"/>
     <item
         android:id="@+id/graphForecastFragment"
-        android:title="@string/graph"
+        android:title="@string/graph_bot"
         android:icon="@drawable/bar_chart_48px"/>
 </menu>

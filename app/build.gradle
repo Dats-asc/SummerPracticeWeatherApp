@@ -35,13 +35,19 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+
+
 }
+
+
+
+
 
 dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.6.0'
 
 
-    // Network
     def okhttp_version = "4.11.0"
     def retrofit_version = "2.9.0"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
@@ -62,4 +68,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
 
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    // custom ViewPager indicator
+    implementation("com.github.zhpanvip:viewpagerindicator:1.2.3")
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/infoFragment">
 
     <fragment
         android:id="@+id/searchFragment"
@@ -64,5 +64,14 @@
         <action
             android:id="@+id/action_twoWeeksForecastFragment_to_todayForecastFragment"
             app:destination="@id/todayForecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.summerpracticeweatherapp.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>

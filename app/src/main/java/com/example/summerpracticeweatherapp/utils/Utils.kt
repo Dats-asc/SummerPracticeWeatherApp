@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.time.chrono.IsoChronology
 
 fun EditText.setOnDebounceTextChanged(
     coroutineScope: CoroutineScope,
@@ -28,6 +29,22 @@ object SharedPrefsUtils {
     private const val CITY_NAME = "CITY_NAME"
     private const val CITY_DEFAULT_VALUE = "Moscow"
 
+    private const val IS_OPENED = "OPENED"
+    private const val IS_OPENED_DEFAULT_VALUE = false
+
+    fun isOpened(ctx: Context) : Boolean{
+        with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE)) {
+            return getBoolean(IS_OPENED, IS_OPENED_DEFAULT_VALUE)
+        }
+    }
+
+    fun setOpenState(ctx: Context){
+        with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE).edit()) {
+            putBoolean(IS_OPENED, true)
+            commit()
+        }
+    }
+
     fun saveCity(ctx: Context, city: String) {
         with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE).edit()) {
             putString(CITY_NAME, city)
@@ -38,6 +55,12 @@ object SharedPrefsUtils {
     fun getSavedCity(ctx: Context): String {
         with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE)) {
             return getString(CITY_NAME, CITY_DEFAULT_VALUE) ?: CITY_DEFAULT_VALUE
+        }
+    }
+
+    fun clearCache(ctx: Context) {
+        with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE).edit()) {
+            clear()
         }
     }
 

@@ -9,6 +9,7 @@ import com.example.summerpracticeweatherapp.network.Forecast
 import com.example.summerpracticeweatherapp.network.NetworkManager
 import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import com.example.summerpracticeweatherapp.utils.setOnDebounceTextChanged
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,6 +27,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding = FragmentSearchBinding.bind(view)
 
         binding?.etCity?.setText(SharedPrefsUtils.getSavedCity(requireContext()))
+
+        activity?.let {
+            it.findViewById<BottomNavigationView>(R.id.navBar).visibility = View.VISIBLE
+        }
 
         if (searchAdapter == null) {
             searchAdapter = SearchAdapter { city ->

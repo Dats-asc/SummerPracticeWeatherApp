@@ -1,11 +1,15 @@
 package com.example.summerpracticeweatherapp
 
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.summerpracticeweatherapp.databinding.ActivityMainBinding
 import com.example.summerpracticeweatherapp.network.Forecast
+import com.example.summerpracticeweatherapp.utils.SharedPrefsUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -15,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
         val controller =
             (supportFragmentManager.findFragmentById(R.id.cw_main_container) as NavHostFragment)
@@ -22,8 +27,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.navBar).apply {
             setupWithNavController(controller)
         }
+        if (SharedPrefsUtils.isOpened(this)){
+            controller.navigate(R.id.action_infoFragment_to_searchFragment)
+        }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+
         Forecast.init(this)
     }
 
