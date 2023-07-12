@@ -6,10 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".GraphForecastFragment">
 
-    <!-- TODO: Реализовать график максимальной минимальной температуры по списку этих самых температур
-     TODO: Используй GraphView
-     TODO: Сверху должна быть вьюшка под название города
-     -->
+
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
@@ -39,7 +36,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/helvetica_light"
-        android:text="@string/_4"
+        android:text="@string/_4_days_forecast_graph"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

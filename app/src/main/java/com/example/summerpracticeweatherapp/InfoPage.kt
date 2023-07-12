@@ -1,4 +1,4 @@
-package com.example.summerpracticeweatherapp.utils
+package com.example.summerpracticeweatherapp
 
 data class InfoPage(
     val title: String,

@@ -24,4 +24,5 @@
     <string name="_5_days">5 Days</string>
     <string name="graph_bot">Graph</string>
     <string name="_4">Прогноз на 4 дня</string>
+    <string name="_4_days_forecast_graph">4 Days Forecast graph</string>
 </resources>

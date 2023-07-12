@@ -57,13 +57,6 @@ object SharedPrefsUtils {
             return getString(CITY_NAME, CITY_DEFAULT_VALUE) ?: CITY_DEFAULT_VALUE
         }
     }
-
-    fun clearCache(ctx: Context) {
-        with(ctx.getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE).edit()) {
-            clear()
-        }
-    }
-
 }
 
 fun ImageView.loadImage(url: String) {

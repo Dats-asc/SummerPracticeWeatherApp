@@ -1,10 +1,8 @@
 package com.example.summerpracticeweatherapp
 
-import com.example.summerpracticeweatherapp.utils.InfoPage
-
 object InfoData {
     val info = listOf<InfoPage>(
-        InfoPage("Weather Wise", "Наше приложение предоставляет точный прогноз погоды с помощью API OpenWeather. Получите подробную информацию о погоде в вашем местоположении или любом другом городе мира. При вводе в поиске вы увидите подсказки для заполнения"),
+        InfoPage("Weather Wise", "Our app provides accurate weather forecast using OpenWeather API. Get detailed weather information for your location or any other city in the world. When you type in a search, you will see prompts to fill in"),
         InfoPage("Functionality", "Detailed weather forecast for today with temperature, precipitation, wind and more.\n\n" +
                 "Weather forecast for 4 days ahead with main indicators\n\n" +
                 "Temperature change graph for 4 days"),
